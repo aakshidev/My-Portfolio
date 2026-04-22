@@ -4,12 +4,40 @@
     <style>
         body {
         background-color: cornflowerblue;
-        font-size: 100px;
+
         }
-        header {background: #333;
+        @media (max-width: 768px) {
+            header { flex-direction: column; text-align: center; }
+        }
+        nav {
+        background: #333;
         padding: 30px;
         color: aliceblue;
-        font-size: 20px; 
+        font-size: 40px; 
+        text-align: left;
+        display: flex;
+        justify-content: space-between; 
+        align-items: center;
+        }
+
+        h1{
+        color: aliceblue;
+        font-size: 10px;
+        text-align: center;
+        }
+        h2{
+            color: aliceblue; 
+            font-size: 40px; 
+            margin-left: 50px;
+        }
+        nav a { 
+        color: white; 
+        text-decoration: none; 
+        margin-left: 20px; 
+        font-size: 16px; 
+        } 
+        nav a:hover { 
+            text-decoration: underline; 
         }
         .container {
             display: flex;
@@ -20,6 +48,18 @@
         }
         .right {
             flex: 1;
+            color: aliceblue;
+            font-size: 20px;
+            display: block;
+            margin-right: 40px;
+            margin-left: 40px;
+            text-align: left;
+        }
+        footer { 
+        text-align: center; 
+        padding: 15px; 
+        background-color: #333; 
+        color: aliceblue; 
         }
     </style>
     <meta charset="UTF-8">
@@ -27,19 +67,23 @@
     <title>Document</title>
 </head>
 <body>
-<header>
-   <span style="font-size: 40px;">Aakshi | Portfolio</span>
-   <span><a href="/aboutme.html" style="color: aliceblue; margin-right: 100px; margin-left: 350px; text-align: left;">About Me</a>
-   <a href="/contact.html" style="color: aliceblue; margin-right: 100px; margin-left: 50px; text-align: left;">Contact</a>
-   <a href="/education.html" style="color: aliceblue; margin-right: 100px; margin-left: 50px; text-align: left;">Education & Projects</a></span>
-</header>
-<h1 style="color: aliceblue; font-size: 40px; text-align: center;">My Portfolio</h1>
+<nav>
+   <span>Aakshi | Portfolio</span>
+   <a href="/aboutme.html">About Me</a>
+   <a href="/contact.html">Contact</a>
+   <a href="/education.html">Education & Projects</a>
+</nav>
+<br>
 <hr>
+<br>
 <div class="container">
-<div class="left"><img src="/WhatsApp Image 2026-04-15 at 3.56.13 PM.jpeg" height="500px" style="margin-left: 80px;"></div>
-    <div><h1 style="color: aliceblue; font-size: 40px; margin-left: 50px;">Aakshi here!</h1><p class="right"  style="color: aliceblue; font-size: 20px; display: block; margin-right: 100px; margin-left: 50px; text-align: left;">I'm Aakshi a passionate web developer with a keen interest in creating responsive and user-friendly websites.
+<div class="left">
+    <img src="/WhatsApp Image 2026-04-15 at 3.56.13 PM.jpeg" height="500px"></div>
+    <div><h2>Aakshi here!</h2>
+        <p class="right">I'm Aakshi a passionate web developer with a keen interest in creating responsive and user-friendly websites.
         This portfolio website yall are hovering on right now is a testament to my skills and creativity in web development.
-        Feel free to explore my projects.
-    </p></div>
+        Feel free to explore my projects.</p>
+</div>
+</div>
 </body>
 </html>
