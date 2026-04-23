@@ -1,34 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Education &amp; Projects</title>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-        background-color: cornflowerblue;
-
-        
+      background-color: #0f172a;
+      font-size: 18px;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
-    header {background-color: #333;
-        padding: 20px;
-        font-style: Arial;
-        text-align: center;
-        font-size: 20px;
-        color: aliceblue;
-    
 
+    /* NAV */
+    nav {
+      background: #000104;
+      padding: 20px 30px;
+      font-size: 22px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
     }
-</style>
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: normal;
+    }
+
+    nav a:hover { text-decoration: underline; }
+
+    /* HEADER */
+    header {
+      background-color: #000104;
+      padding: 20px;
+      text-align: center;
+      border-top: 1px solid #1e293b;
+    }
+
+    /* SECTION TITLES */
+    .section-title {
+      text-align: center;
+      font-size: 26px;
+      margin: 30px 20px 0;
+    }
+
+    /* CONTAINER & CARDS */
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: #000104;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 15px;
+      flex: 1 1 300px;
+      max-width: 400px;
+      line-height: 1.6;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover { transform: translateY(-5px); }
+
+    .card h2, .card h3 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #333;
+      text-align: center;
+      padding: 15px;
+      margin-top: auto;
+      color: aliceblue;
+    }
+
+    @media (max-width: 768px) {
+      nav { flex-direction: column; text-align: center; }
+      .nav-links { justify-content: center; }
+    }
+  </style>
 </head>
-<header>
-    <h1>Education & Projects</h1>
-</header>
+
 <body>
-    <p style="font-size: 20px; font-style: arial; color: rgb(255, 255, 255); border-radius: 8px;">A student at Dass and Brown World School in class 12th studying PCM.<b style="font-size: 20px; font-style: arial; color: rgb(255, 255, 255); border-radius: 8px;"><hr>Academics:</b><br><span style="font-size: 20px; font-style: arial; color: rgb(255, 255, 255); border-radius: 8px;">Class 10th result: 97.4% with a perfect score of 100/100 in maths</span><hr><b style="font-size: 20px; font-style: arial; color: rgb(255, 255, 255); border-radius: 8px;">Beyond Academics:</b><br><span style="font-size: 20px; font-style: arial; color: rgb(255, 255, 255); border-radius: 8px;">I'm a keen learner of Web Development and Design, and in the urge of learning more out of textbooks I joined a web development course at Raspbians and learnt basics for web development.<hr>Here are some projects I've worked on:</span></p>
-<p style="padding: 20px;background-color: rgba(240, 248, 255, 0.717);border-radius: 8px; font-size: 25px;"><b>Day Planner</b><br>A basic task manager to organize daily activities</p>    
-<p style="padding: 20px;background-color: rgba(240, 248, 255, 0.717);border-radius: 8px; font-size: 25px;"><b>Portfolio Website</b><br> A personal portfolio website created using HTML and CSS.</p>  
-<p style="padding: 20px;background-color: rgba(240, 248, 255, 0.717);border-radius: 8px; font-size: 25px;"><b>Lorem ipsum</b><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur fuga perspiciatis reiciendis error deserunt, molestiae eligendi numquam. Provident dolor unde consequuntur facere, eveniet ea odio dolorem ratione quaerat minus sequi.</p>
-<footer style=" background-color: #333; color: aliceblue; text-align: center; padding: 8px;"><p>© 2026 Aakshi</p></footer>
+
+  <!-- NAV -->
+  <nav>
+    <span>Aakshi | Portfolio</span>
+    <div class="nav-links">
+      <a href="/index.html">Home</a>
+      <a href="/aboutme.html">About Me</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header>
+    <h1>Education &amp; Projects</h1>
+  </header>
+
+  <!-- EDUCATION -->
+  <h2 class="section-title">Education</h2>
+  <div class="container">
+    <div class="card">
+      <h2>Academics</h2>
+      <p>A student at Dass and Brown World School in class 12th studying PCM.
+        Class 10th result: 97.4% with a perfect score of 100/100 in Maths.</p>
+    </div>
+    <div class="card">
+      <h2>Beyond Academics</h2>
+      <p>I'm a keen learner of Web Development and Design. I joined a web
+        development course at Raspbians to explore beyond textbooks.</p>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <h2 class="section-title">My Projects</h2>
+  <div class="container">
+    <div class="card">
+      <h3>Day Planner</h3>
+      <p>A basic task manager to organize daily activities.</p>
+    </div>
+    <div class="card">
+      <h3>Portfolio Website</h3>
+      <p>A personal portfolio website created using HTML and CSS.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 Aakshi. All rights reserved.</p>
+  </footer>
+
 </body>
 </html>
