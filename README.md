@@ -22,7 +22,7 @@ Feel free to reach out:
 
 Email: yourname@example.com
 
-LinkedIn: linkedin.com/in/yourprofile
+LinkedIn: linkedin.com/in/aakshidev._
 
-GitHub: github.com/username
+GitHub: github.com/aakshidev
 </p>
