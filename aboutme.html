@@ -1,29 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-<style>
-    body {
-        background-color: #0f172a;
-        font-size: 100px;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me | Aakshi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #080d1a;
+      --surface: #0d1526;
+      --card: #111827;
+      --accent: #6ee7b7;
+      --accent2: #38bdf8;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --border: rgba(255,255,255,0.07);
     }
-    header {background-color: #000104;
-        padding: 20px;
-        font-style: Arial;
-        text-align: center;
-        font-size: 20px;
-        color: aliceblue;
-        }
-</style>
+ 
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    body {
+      background-color: var(--bg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      overflow-x: hidden;
+    }
+ 
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(110,231,183,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(110,231,183,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+ 
+    nav {
+      background: rgba(8,13,26,0.85);
+      backdrop-filter: blur(12px);
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+    }
+ 
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: var(--accent);
+    }
+ 
+    .nav-links { display: flex; gap: 30px; }
+ 
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+ 
+    nav a:hover { color: var(--accent); }
+ 
+    /* PAGE LAYOUT */
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 70px 40px 80px;
+    }
+ 
+    .page-tag {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+ 
+    .page h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(38px, 5vw, 58px);
+      line-height: 1.1;
+      margin-bottom: 48px;
+      animation: fadeUp 0.6s ease both;
+    }
+ 
+    /* INTRO BLOCK */
+    .intro-block {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 10px;
+      padding: 28px 32px;
+      margin-bottom: 32px;
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text);
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+ 
+    /* TIMELINE */
+    .timeline-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      margin-bottom: 28px;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+ 
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+      animation: fadeUp 0.6s 0.25s ease both;
+    }
+ 
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 6px;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+    }
+ 
+    .timeline-item {
+      position: relative;
+      margin-bottom: 32px;
+    }
+ 
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -34px;
+      top: 7px;
+      width: 9px;
+      height: 9px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(110,231,183,0.5);
+    }
+ 
+    .timeline-year {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 6px;
+    }
+ 
+    .timeline-item p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+ 
+    .timeline-item p strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+ 
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 20px;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: auto;
+    }
+ 
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+ 
+    @media (max-width: 768px) {
+      nav { padding: 16px 20px; }
+      .page { padding: 50px 20px 60px; }
+    }
+  </style>
 </head>
-<header>
-    <h1>About me</h1>
-    </header>
-    <p style="font-size: 20px; font-style: arial; color: rgb(0, 0, 0); padding: 20px; background-color: rgba(240, 248, 255, 0.717); border-radius: 8px;">I'm Aakshi, a passionate learner of web development and design, and a coffee addict who someday loves peace and someday is in a full blown mood of chaos and parties and somewhere between all the dreams is stuck with consience of life, still passionate about learning more and more out of textbooks</p>
-     <p style="font-size: 20px; font-style: arial; color: rgb(0, 0, 0); padding: 20px; background-color: rgba(240, 248, 255, 0.717); border-radius: 8px;">This about me page of mine must have the time period when I myself discovered who I really am<br><br>Starting from 2024-I was like any other student who who had no idea what she really wanted to do with her life besides the fact that she wants to be successful somehow ,earn money and be independent. The thing about me was I was passionate, like really passionate, but practically passionate, this means I was passionate of how my parents and society would like to see me not for how I would like to see myself. So I did what any other student would have done to stand on society's expectations, I studied hard and performed great academically. During all this yet I discovered a tiny piece of myself; My interest in web development for which I learned basics in 9th starting with block coding then HTML and CSS basics, but I lost track of those because I was more focused on my academic pursuits. Then comes 11th I opted for PCM and everyone told me to cut of my social life ,sit in a seperate room, study hard, its a journey of 2 years then everything would be perfect and all stuff- and I did the same, till september. In october I felt alone and wanted to have track of my life again. I connected back to my old friends and started socialising again which was the first very best decision I made. October felt so light and happy to me. I met new people had a great time and this was when I met this person whom I got really close to and would share everything with. Starting with 2026- Had all the thoughts like- 2026 is gonna be my year this that; Canon events of the year; January- I lost my academic track; Feburary- I lost my grandpa unexpectedly; March- I lost contact with person I met in october and for starting of 12th my friend group fell apart because all of us had change of plans for career including me- All these events happened october onwards helped me discover myself. I still had hoped for rest of my year. From April I started learning web development again and coming back on academic track along with balancing my social life and not losing touch with my friends this time.</p>
 <body>
-    
+ 
+  <nav>
+    <span class="nav-brand">Aakshi</span>
+    <div class="nav-links">
+      <a href="Index.html">Home</a>
+      <a href="contact.html">Contact</a>
+      <a href="Education.html">Education</a>
+    </div>
+  </nav>
+ 
+  <div class="page">
+    <p class="page-tag">✦ Getting personal</p>
+    <h1>About Me</h1>
+ 
+    <div class="intro-block">
+      I'm Aakshi — a passionate learner of web development and design, and a coffee addict who someday loves peace and someday is in a full-blown mood of chaos and parties. Somewhere between all the dreams, I'm still figuring out life, but I stay passionate about learning more and more beyond textbooks.
+    </div>
+ 
+    <h2 class="timeline-title">How I Discovered Myself</h2>
+ 
+    <div class="timeline">
+      <div class="timeline-item">
+        <p class="timeline-year">2024 — The Academic Chapter</p>
+        <p>Like many students, I had no clear idea what I truly wanted — only that I wanted to be <strong>successful, independent, and earn well</strong>. I was passionate, but practically so — shaped by others' expectations. I studied hard and performed great academically. Along the way, I found a small piece of myself: <strong>an interest in web development</strong>. I learned block coding, then HTML and CSS basics in 9th grade, but lost track when academics took over.</p>
+      </div>
+ 
+      <div class="timeline-item">
+        <p class="timeline-year">2025 — Class 11 & The Reset</p>
+        <p>I opted for PCM. Everyone said: cut off your social life, study hard, it'll all be worth it. I did — until September. In <strong>October, I chose to reconnect</strong>. I reached out to old friends, started socialising again. It felt light and happy. I met new people, had a great time, and found someone I could share everything with.</p>
+      </div>
+ 
+      <div class="timeline-item">
+        <p class="timeline-year">2026 — The Year That Shaped Me</p>
+        <p>January: lost my academic track. February: <strong>lost my grandfather unexpectedly</strong>. March: lost contact with someone important, and my friend group drifted as everyone changed career paths — including me. Each of these events, painful as they were, helped me discover who I really am. <strong>From April, I came back</strong> — to web development, to academics, to my friends — this time with balance.</p>
+      </div>
+    </div>
+  </div>
+ 
+  <footer>
+    <p>© 2026 Aakshi. All rights reserved.</p>
+  </footer>
+ 
 </body>
 </html>

@@ -4,200 +4,327 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aakshi | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #080d1a;
+      --surface: #0d1526;
+      --card: #111827;
+      --accent: #6ee7b7;
+      --accent2: #38bdf8;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --border: rgba(255,255,255,0.07);
+    }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background-color: #0f172a;
+      background-color: var(--bg);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      overflow-x: hidden;
     }
+
+    /* Background grid */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(110,231,183,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(110,231,183,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
     /* NAV */
     nav {
-      background: #000104;
-      padding: 20px 30px;
-      color: aliceblue;
-      font-size: 22px;
-      font-weight: bold;
+      background: rgba(8,13,26,0.85);
+      backdrop-filter: blur(12px);
+      padding: 18px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: var(--accent);
+      letter-spacing: 0.02em;
     }
 
     .nav-links {
       display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
+      gap: 30px;
     }
 
     nav a {
-      color: white;
+      color: var(--muted);
       text-decoration: none;
-      font-size: 16px;
-      font-weight: normal;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
     }
 
-    nav a:hover {
-      text-decoration: underline;
+    nav a:hover { color: var(--accent); }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      z-index: 1;
+      padding: 90px 50px 60px;
+      max-width: 900px;
     }
 
-    hr {
-      border-color: #1e293b;
-      margin: 0 30px;
+    .hero-tag {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid rgba(110,231,183,0.3);
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+      animation: fadeUp 0.6s ease both;
     }
 
-    /* INTRO */
-    .intro {
-      padding: 40px 50px 20px;
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(44px, 6vw, 72px);
+      line-height: 1.1;
+      margin-bottom: 24px;
+      animation: fadeUp 0.6s 0.1s ease both;
     }
 
-    .intro h2 {
-      color: aliceblue;
-      font-size: 40px;
-      margin-bottom: 16px;
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    .intro p {
-      color: aliceblue;
-      font-size: 18px;
-      max-width: 700px;
-      line-height: 1.6;
+    .hero p {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 560px;
+      line-height: 1.75;
+      animation: fadeUp 0.6s 0.2s ease both;
     }
 
-    /* PROJECTS HEADING */
-    .projects-heading {
-      color: aliceblue;
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 36px;
+      padding: 13px 28px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #080d1a;
+      font-weight: 600;
+      font-size: 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: opacity 0.2s, transform 0.2s;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+
+    .hero-cta:hover { opacity: 0.85; transform: translateY(-2px); }
+
+    /* DIVIDER */
+    .divider {
+      position: relative;
+      z-index: 1;
+      margin: 0 50px;
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    /* PROJECTS */
+    .section-header {
+      position: relative;
+      z-index: 1;
+      padding: 50px 50px 10px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
       font-size: 32px;
-      padding: 20px 50px 0;
+      color: var(--text);
     }
 
-    /* CARDS */
     .cards-container {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 10px 30px 40px;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+      padding: 24px 50px 60px;
     }
 
     .card {
-      background: #000104;
-      color: white;
-      padding: 24px;
-      border-radius: 10px;
-      margin: 20px;
-      flex: 1 1 240px;
-      min-width: 200px;
-      transition: transform 0.3s ease;
+      background: var(--card);
+      color: var(--text);
+      padding: 28px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      opacity: 0;
+      transition: opacity 0.3s;
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
+      border-color: rgba(110,231,183,0.2);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    .card:hover::before { opacity: 1; }
+
+    .card-num {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
     }
 
     .card h3 {
-      margin-top: 0;
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
       margin-bottom: 10px;
-      font-size: 18px;
+      font-weight: 700;
     }
 
     .card p {
       font-size: 14px;
-      line-height: 1.5;
-      color: #cbd5e1;
+      line-height: 1.65;
+      color: var(--muted);
     }
 
     .card a {
-      display: inline-block;
-      margin-top: 12px;
-      color: #60a5fa;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 18px;
+      color: var(--accent2);
       text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: gap 0.2s;
     }
 
-    .card a:hover {
-      text-decoration: underline;
-    }
+    .card a:hover { gap: 10px; }
 
     /* FOOTER */
     footer {
+      position: relative;
+      z-index: 1;
       text-align: center;
-      padding: 15px;
-      background-color: #333;
-      color: aliceblue;
+      padding: 20px;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
       margin-top: auto;
     }
 
-    /* RESPONSIVE */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        text-align: center;
-      }
-      .nav-links {
-        justify-content: center;
-      }
-      .intro {
-        padding: 30px 20px 10px;
-      }
-      .projects-heading {
-        padding: 20px 20px 0;
-      }
-      .cards-container {
-        flex-direction: column;
-        padding: 10px 10px 30px;
-      }
+      nav { padding: 16px 20px; }
+      .hero { padding: 60px 20px 40px; }
+      .section-header { padding: 40px 20px 10px; }
+      .cards-container { padding: 20px 20px 40px; }
+      .divider { margin: 0 20px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
-    <span>Aakshi | Portfolio</span>
+    <span class="nav-brand">Aakshi</span>
     <div class="nav-links">
-      <a href="/aboutme.html">About Me</a>
-      <a href="/contact.html">Contact</a>
-      <a href="/education.html">Education &amp; Projects</a>
+      <a href="aboutme.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="Education.html">Education</a>
     </div>
   </nav>
 
-  <hr>
-
-  <!-- INTRO -->
-  <div class="intro">
-    <h2>Aakshi here!</h2>
-    <p>I'm Aakshi, a passionate web developer with a keen interest in creating
-      responsive and user-friendly websites. This portfolio website y'all are
-      hovering on right now is a testament to my skills and creativity in web
-      development. Feel free to explore my projects.</p>
+  <div class="hero">
+    <span class="hero-tag">✦ Portfolio 2026</span>
+    <h1>Hi, I'm <span>Aakshi</span></h1>
+    <p>A passionate web developer with a keen interest in creating responsive and user-friendly websites. Explore my work below.</p>
+    <a href="Education.html" class="hero-cta">View My Projects →</a>
   </div>
 
-  <!-- PROJECTS -->
-  <h2 class="projects-heading">My Projects</h2>
+  <hr class="divider">
+
+  <div class="section-header">
+    <p class="section-label">Selected Work</p>
+    <h2 class="section-title">My Projects</h2>
+  </div>
+
   <div class="cards-container">
     <div class="card">
-      <h3>Project 1: Personal Portfolio Website</h3>
-      <p>Created a responsive portfolio website using HTML, CSS, and JavaScript
-        to showcase my skills and projects.</p>
+      <p class="card-num">01</p>
+      <h3>Personal Portfolio Website</h3>
+      <p>A responsive portfolio website built with HTML, CSS, and JavaScript to showcase skills and projects.</p>
       <a href="https://www.google.com">View Project →</a>
     </div>
     <div class="card">
-      <h3>Project 2: E-commerce Website</h3>
-      <p>Developed a fully functional e-commerce website with features like
-        product listing, shopping cart, and user authentication.</p>
+      <p class="card-num">02</p>
+      <h3>E-commerce Website</h3>
+      <p>A fully functional e-commerce site featuring product listings, shopping cart, and user authentication.</p>
       <a href="https://www.google.com">View Project →</a>
     </div>
     <div class="card">
-      <h3>Project 3: Blog Platform</h3>
-      <p>Built a blog platform where users can create, edit, and delete posts,
-        as well as comment on them.</p>
+      <p class="card-num">03</p>
+      <h3>Blog Platform</h3>
+      <p>A blog platform where users can create, edit, and delete posts, as well as comment on them.</p>
       <a href="https://www.google.com">View Project →</a>
     </div>
   </div>
 
   <footer>
-    <p>© 2025 Aakshi. All rights reserved.</p>
+    <p>© 2026 Aakshi. All rights reserved.</p>
   </footer>
 
 </body>

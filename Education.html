@@ -3,150 +3,257 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Education &amp; Projects</title>
-
+  <title>Education & Projects | Aakshi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #080d1a;
+      --surface: #0d1526;
+      --card: #111827;
+      --accent: #6ee7b7;
+      --accent2: #38bdf8;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --border: rgba(255,255,255,0.07);
+    }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background-color: #0f172a;
-      font-size: 18px;
-      color: white;
+      background-color: var(--bg);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      overflow-x: hidden;
     }
 
-    /* NAV */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(110,231,183,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(110,231,183,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
     nav {
-      background: #000104;
-      padding: 20px 30px;
-      font-size: 22px;
-      font-weight: bold;
+      background: rgba(8,13,26,0.85);
+      backdrop-filter: blur(12px);
+      padding: 18px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
     }
 
-    .nav-links {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: var(--accent);
     }
+
+    .nav-links { display: flex; gap: 30px; }
 
     nav a {
-      color: white;
+      color: var(--muted);
       text-decoration: none;
-      font-size: 16px;
-      font-weight: normal;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
     }
 
-    nav a:hover { text-decoration: underline; }
+    nav a:hover { color: var(--accent); }
 
-    /* HEADER */
     header {
-      background-color: #000104;
-      padding: 20px;
-      text-align: center;
-      border-top: 1px solid #1e293b;
+      position: relative;
+      z-index: 1;
+      padding: 60px 50px 20px;
     }
 
-    /* SECTION TITLES */
+    .page-tag {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(38px, 5vw, 58px);
+      animation: fadeUp 0.6s ease both;
+    }
+
+    /* SECTION */
+    .section {
+      position: relative;
+      z-index: 1;
+      padding: 40px 50px 10px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
     .section-title {
-      text-align: center;
-      font-size: 26px;
-      margin: 30px 20px 0;
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      margin-bottom: 24px;
     }
 
-    /* CONTAINER & CARDS */
+    /* CARDS GRID */
     .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 0 50px 50px;
     }
 
     .card {
-      background: #000104;
-      color: white;
-      padding: 20px;
-      border-radius: 10px;
-      margin: 15px;
-      flex: 1 1 300px;
-      max-width: 400px;
-      line-height: 1.6;
-      transition: transform 0.3s ease;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      line-height: 1.7;
+      transition: transform 0.3s ease, border-color 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+      animation: fadeUp 0.5s ease both;
     }
 
-    .card:hover { transform: translateY(-5px); }
+    .card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(110,231,183,0.2);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    .card:hover::after { opacity: 1; }
 
     .card h2, .card h3 {
-      text-align: center;
-      margin-bottom: 10px;
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      margin-bottom: 12px;
     }
 
-    /* FOOTER */
+    .card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .stat {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--accent);
+      background: rgba(110,231,183,0.08);
+      padding: 4px 12px;
+      border-radius: 100px;
+      border: 1px solid rgba(110,231,183,0.2);
+    }
+
     footer {
-      background-color: #333;
+      position: relative;
+      z-index: 1;
       text-align: center;
-      padding: 15px;
+      padding: 20px;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
       margin-top: auto;
-      color: aliceblue;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 768px) {
-      nav { flex-direction: column; text-align: center; }
-      .nav-links { justify-content: center; }
+      nav { padding: 16px 20px; }
+      header, .section { padding-left: 20px; padding-right: 20px; }
+      .container { padding: 0 20px 40px; }
     }
   </style>
 </head>
-
 <body>
 
-  <!-- NAV -->
   <nav>
-    <span>Aakshi | Portfolio</span>
+    <span class="nav-brand">Aakshi</span>
     <div class="nav-links">
-      <a href="/index.html">Home</a>
-      <a href="/aboutme.html">About Me</a>
-      <a href="/contact.html">Contact</a>
+      <a href="Index.html">Home</a>
+      <a href="aboutme.html">About</a>
+      <a href="contact.html">Contact</a>
     </div>
   </nav>
 
-  <!-- HEADER -->
   <header>
-    <h1>Education &amp; Projects</h1>
+    <p class="page-tag">✦ My Journey</p>
+    <h1>Education & Projects</h1>
   </header>
 
-  <!-- EDUCATION -->
-  <h2 class="section-title">Education</h2>
+  <div class="section">
+    <p class="section-label">Academics</p>
+    <h2 class="section-title">Education</h2>
+  </div>
+
   <div class="container">
     <div class="card">
       <h2>Academics</h2>
-      <p>A student at Dass and Brown World School in class 12th studying PCM.
-        Class 10th result: 97.4% with a perfect score of 100/100 in Maths.</p>
+      <p>Currently in Class 12 at Dass and Brown World School, studying PCM (Physics, Chemistry, Mathematics).</p>
+      <span class="stat">Class 10: 97.4% · 100/100 in Maths</span>
     </div>
     <div class="card">
       <h2>Beyond Academics</h2>
-      <p>I'm a keen learner of Web Development and Design. I joined a web
-        development course at Raspbians to explore beyond textbooks.</p>
+      <p>A keen learner of Web Development and Design. Joined a web development course at Raspbians to explore beyond textbooks.</p>
+      <span class="stat">HTML · CSS · JavaScript</span>
     </div>
   </div>
 
-  <!-- PROJECTS -->
-  <h2 class="section-title">My Projects</h2>
+  <div class="section">
+    <p class="section-label">Work</p>
+    <h2 class="section-title">My Projects</h2>
+  </div>
+
   <div class="container">
-    <div class="card">
+    <div class="card" style="animation-delay:0.1s">
       <h3>Day Planner</h3>
-      <p>A basic task manager to organize daily activities.</p>
+      <p>A basic task manager built to organize daily activities. Focused on clean UI and usability.</p>
+      <span class="stat">HTML · CSS · JS</span>
     </div>
-    <div class="card">
+    <div class="card" style="animation-delay:0.2s">
       <h3>Portfolio Website</h3>
-      <p>A personal portfolio website created using HTML and CSS.</p>
+      <p>A personal portfolio website showcasing projects and skills, created with HTML and CSS from scratch.</p>
+      <span class="stat">HTML · CSS</span>
     </div>
   </div>
 
