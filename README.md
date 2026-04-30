@@ -20,9 +20,13 @@ Git & GitHub for version control and collaboration
 <p>
 Feel free to reach out:
 
-Email: yourname@example.com
+Email: aakshi18112008@gmail.com
 
 LinkedIn: linkedin.com/in/aakshidev._
 
 GitHub: github.com/aakshidev
+<br>
+Visit the site:
+<br>
+<p>Link- https://my-portfolio-chi-seven-41.vercel.app/</p>
 </p>
