@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aakshi | Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --bg: #080d1a;
@@ -19,19 +19,14 @@
       --border: rgba(255,255,255,0.07);
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       background-color: var(--bg);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
       font-family: 'DM Sans', sans-serif;
       color: var(--text);
-      overflow-x: hidden;
     }
 
-    /* Background grid */
     body::before {
       content: '';
       position: fixed;
@@ -41,291 +36,212 @@
         linear-gradient(90deg, rgba(110,231,183,0.03) 1px, transparent 1px);
       background-size: 60px 60px;
       pointer-events: none;
-      z-index: 0;
     }
 
-    /* NAV */
     nav {
       background: rgba(8,13,26,0.85);
       backdrop-filter: blur(12px);
       padding: 18px 40px;
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
       border-bottom: 1px solid var(--border);
     }
 
     .nav-brand {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px;
+      font-family: 'Playfair Display';
       color: var(--accent);
-      letter-spacing: 0.02em;
     }
 
     .nav-links {
       display: flex;
-      gap: 30px;
+      gap: 25px;
     }
 
     nav a {
       color: var(--muted);
       text-decoration: none;
       font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      transition: color 0.2s;
     }
 
     nav a:hover { color: var(--accent); }
 
-    /* HERO */
     .hero {
-      position: relative;
-      z-index: 1;
-      padding: 90px 50px 60px;
+      padding: 100px 50px 60px;
       max-width: 900px;
     }
 
     .hero-tag {
-      display: inline-block;
-      font-size: 12px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
       color: var(--accent);
-      border: 1px solid rgba(110,231,183,0.3);
-      padding: 5px 14px;
-      border-radius: 100px;
-      margin-bottom: 28px;
-      animation: fadeUp 0.6s ease both;
+      margin-bottom: 20px;
+      display: inline-block;
     }
 
     .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(44px, 6vw, 72px);
-      line-height: 1.1;
-      margin-bottom: 24px;
-      animation: fadeUp 0.6s 0.1s ease both;
+      font-family: 'Playfair Display';
+      font-size: 64px;
+      margin-bottom: 20px;
     }
 
-    .hero h1 span {
+    .hero span {
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
     }
 
     .hero p {
       color: var(--muted);
-      font-size: 17px;
-      max-width: 560px;
-      line-height: 1.75;
-      animation: fadeUp 0.6s 0.2s ease both;
+      font-size: 18px;
+      max-width: 600px;
+      line-height: 1.6;
     }
 
     .hero-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 36px;
-      padding: 13px 28px;
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 25px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color: #080d1a;
-      font-weight: 600;
-      font-size: 14px;
-      border-radius: 6px;
+      color: black;
       text-decoration: none;
-      letter-spacing: 0.02em;
-      transition: opacity 0.2s, transform 0.2s;
-      animation: fadeUp 0.6s 0.3s ease both;
+      border-radius: 6px;
     }
 
-    .hero-cta:hover { opacity: 0.85; transform: translateY(-2px); }
-
-    /* DIVIDER */
-    .divider {
-      position: relative;
-      z-index: 1;
-      margin: 0 50px;
-      border: none;
-      border-top: 1px solid var(--border);
-    }
-
-    /* PROJECTS */
     .section-header {
-      position: relative;
-      z-index: 1;
-      padding: 50px 50px 10px;
-    }
-
-    .section-label {
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 8px;
+      padding: 50px;
     }
 
     .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 32px;
-      color: var(--text);
+      font-family: 'Playfair Display';
+      font-size: 30px;
     }
 
     .cards-container {
-      position: relative;
-      z-index: 1;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
       gap: 20px;
-      padding: 24px 50px 60px;
+      padding: 20px 50px 60px;
     }
 
     .card {
       background: var(--card);
-      color: var(--text);
-      padding: 28px;
-      border-radius: 12px;
+      padding: 25px;
+      border-radius: 10px;
       border: 1px solid var(--border);
-      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      opacity: 0;
-      transition: opacity 0.3s;
+      transition: 0.3s;
     }
 
     .card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(110,231,183,0.2);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    }
-
-    .card:hover::before { opacity: 1; }
-
-    .card-num {
-      font-size: 11px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 14px;
+      transform: translateY(-5px);
+      border-color: var(--accent);
     }
 
     .card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 19px;
       margin-bottom: 10px;
-      font-weight: 700;
+      font-family: 'Playfair Display';
     }
 
     .card p {
-      font-size: 14px;
-      line-height: 1.65;
       color: var(--muted);
+      font-size: 14px;
     }
 
     .card a {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 18px;
+      display: inline-block;
+      margin-top: 15px;
       color: var(--accent2);
       text-decoration: none;
-      font-size: 13px;
-      font-weight: 500;
-      transition: gap 0.2s;
+      font-size: 14px;
     }
 
-    .card a:hover { gap: 10px; }
-
-    /* FOOTER */
     footer {
-      position: relative;
-      z-index: 1;
       text-align: center;
       padding: 20px;
       background: var(--surface);
-      border-top: 1px solid var(--border);
       color: var(--muted);
-      font-size: 13px;
-      margin-top: auto;
     }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    @media(max-width:768px){
+      .hero { padding: 60px 20px; }
+      .cards-container { padding: 20px; }
+      .section-header { padding: 30px 20px; }
     }
 
-    @media (max-width: 768px) {
-      nav { padding: 16px 20px; }
-      .hero { padding: 60px 20px 40px; }
-      .section-header { padding: 40px 20px 10px; }
-      .cards-container { padding: 20px 20px 40px; }
-      .divider { margin: 0 20px; }
-    }
   </style>
 </head>
+
 <body>
 
-  <nav>
-    <span class="nav-brand">Aakshi</span>
-    <div class="nav-links">
-      <a href="aboutme.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="Education.html">Education</a>
-    </div>
-  </nav>
+<nav>
+  <div class="nav-brand">Aakshi</div>
+  <div class="nav-links">
+    <a href="aboutme.html">About</a>
+    <a href="Education.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
 
-  <div class="hero">
-    <span class="hero-tag">✦ Portfolio 2026</span>
-    <h1>Hi, I'm <span>Aakshi</span></h1>
-    <p>A passionate web developer with a keen interest in creating responsive and user-friendly websites. Explore my work below.</p>
-    <a href="Education.html" class="hero-cta">View My Projects →</a>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">✦ Portfolio 2026</div>
+  <h1>Hi, I'm <span>Aakshi</span></h1>
+
+  <p>
+    I build modern web applications with clean design and real functionality — not just interfaces.
+  </p>
+
+  <!-- kept your link -->
+  <a href="Education.html" class="hero-cta">View My Work →</a>
+</div>
+
+<!-- CURRENTLY -->
+<div class="section-header">
+  <h2 class="section-title">What I'm Doing</h2>
+</div>
+
+<div class="cards-container">
+  <div class="card">
+    <h3>Learning</h3>
+    <p>Deepening my JavaScript knowledge and starting backend development with Node.js.</p>
   </div>
 
-  <hr class="divider">
-
-  <div class="section-header">
-    <p class="section-label">Selected Work</p>
-    <h2 class="section-title">My Projects</h2>
+  <div class="card">
+    <h3>Building</h3>
+    <p>Working on an e-commerce app with cart functionality and localStorage.</p>
   </div>
 
-  <div class="cards-container">
-    <div class="card">
-      <p class="card-num">01</p>
-      <h3>Personal Portfolio Website</h3>
-      <p>A responsive portfolio website built with HTML, CSS, and JavaScript to showcase skills and projects.</p>
-      <a href="https://www.google.com">View Project →</a>
-    </div>
-    <div class="card">
-      <p class="card-num">02</p>
-      <h3>E-commerce Website</h3>
-      <p>A fully functional e-commerce site featuring product listings, shopping cart, and user authentication.</p>
-      <a href="https://www.google.com">View Project →</a>
-    </div>
-    <div class="card">
-      <p class="card-num">03</p>
-      <h3>Blog Platform</h3>
-      <p>A blog platform where users can create, edit, and delete posts, as well as comment on them.</p>
-      <a href="https://www.google.com">View Project →</a>
-    </div>
+  <div class="card">
+    <h3>Goal</h3>
+    <p>Becoming a full-stack developer and building real-world products.</p>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div class="section-header">
+  <h2 class="section-title">Selected Projects</h2>
+</div>
+
+<div class="cards-container">
+  <div class="card">
+    <h3>Personal Portfolio Website</h3>
+    <p>Modern responsive portfolio with clean UI and animations.</p>
+    <a href="Education.html">View Project →</a>
   </div>
 
-  <footer>
-    <p>© 2026 Aakshi. All rights reserved.</p>
-  </footer>
+  <div class="card">
+    <h3>E-commerce Website</h3>
+    <p>Includes product listings and shopping cart functionality.</p>
+    <a href="Education.html">View Project →</a>
+  </div>
+
+  <div class="card">
+    <h3>Blog Platform</h3>
+    <p>Create, edit, and manage blog posts with clean UI.</p>
+    <a href="Education.html">View Project →</a>
+  </div>
+</div>
+
+<footer>
+  © 2026 Aakshi
+</footer>
 
 </body>
 </html>
